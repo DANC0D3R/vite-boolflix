@@ -73,7 +73,7 @@ export default {
     <div class="dc-card card" v-show="elem.poster_path">
         <img :src="`${store.imgUrl}${elem.poster_path}`" class="dc-card-img dc-card-front" :alt="elem.title">
         <div class="dc-card-overlay"></div>
-        <div class="card-body dc-card-back d-none">
+        <div class="dc-card-back">
             <!-- Titolo -->
             <h4 class="card-text">{{elem.title || elem.name}}</h4>
             <!-- Descrizione -->
@@ -99,8 +99,6 @@ export default {
         max-height:400px;
 
         padding:0;
-
-        aspect-ratio: 4 / 5;
         .dc-card-img{
         width:100%;
         height:100%;
@@ -159,16 +157,41 @@ export default {
             opacity: 1;
         }
     }
-
+    .dc-card-back{
+    color:white;
+    padding:12px;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index: 1;
+    padding: 12px;
+    line-height: 1.4;
+    opacity: 0;
+    visibility: hidden;
+    box-sizing: border-box;
+    pointer-events: none;
+    transition: 0s;
+    .dc-card-overlay:hover ~ & {
+        opacity: 1;
+        visibility: visible;
+        transition: 0.2s 0.3s;
+    }
+    h4 {
+        margin: 0;
+        margin-bottom: 12px;
+        font-size:15px;
+    }
+    p{
+        
+    }
     .mini-flag{
-        max-height: 15px;
-
-        border-radius: 2px;
+        max-height:15px;
+        border-radius:2px;
     }
     .card-sum{
-        max-height: 50%;
-        
-        overflow-y: auto;
-        overflow-x: hidden;
+        overflow-y:auto;
+        overflow-x:hidden;
+        max-height:250px;
     }
-</style>
+}
+</style>1
