@@ -3,6 +3,7 @@ import {store} from './store'
 import axios from 'axios'
 import AppHeader from './components/AppHeader.vue'
 import AppMain from './components/AppMain.vue'
+import Card from './components/Card.vue'
 export default {
   name:'App',
   data(){
@@ -12,7 +13,8 @@ export default {
   },
   components:{
     AppHeader,
-    AppMain
+    AppMain,
+    Card
   },
   methods:{
     getApiCall(){
