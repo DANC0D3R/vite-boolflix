@@ -36,5 +36,36 @@ export default {
 <!-- Stile -->
 <style lang="scss">
 @use '../assets/scss/variables' as *;
+header{
+    height: 70px;
 
+    background-color: #000000;
+    .logo > img{
+        max-height: 90%;
+    }
+    .search-field{
+        span{
+            padding: 10px;
+
+            color:#FFFFFF;
+            background-color: $primary-darkgrey;
+        }
+        .dropdown-toggle{
+            font-size: 80%;
+
+            border: none;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+
+            color:#FFFFFF;
+            background-color: $primary-red;
+
+            outline: none;
+        }
+        .input{
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+    }
+}
 </style>

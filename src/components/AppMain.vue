@@ -26,5 +26,11 @@ export default {
 
 <!-- Stile -->
 <style>
-    
+    main{
+        width:100vw;
+        height:calc(100vh - 70px);
+
+        background:linear-gradient(45deg, black, grey);
+        overflow-y: auto;
+    }
 </style>
