@@ -1,13 +1,15 @@
 import {reactive} from 'vue'
 
 export const store = reactive ({
-    apiUrlMovie : 'https://api.themoviedb.org/3/search/movie?api_key=830f801987e075f53ffa8a84c8fde8d7&query=',
-    apiUrlTv : 'https://api.themoviedb.org/3/search/tv?api_key=830f801987e075f53ffa8a84c8fde8d7&query=',
+    apiUrl: 'https://api.themoviedb.org/3/search/',
+    trendUrl:'https://api.themoviedb.org/3/trending/',
+    apiKey:'4e4dcff717724b5b605bbb9f0438a391',
     imgUrl:'https://image.tmdb.org/t/p/w342',
-    moviesList: [],
+    movie:[],
+    tv:[],
     // Ricerca titolo
-    elementToSearch : '',
+    elementToSearch: '',
     // Ricerca Film /Serie TV filtrata
-    typeToSearch:'',
-    isLoaded : false,
+    typeOf: '',
+    isLoaded: false,
 })

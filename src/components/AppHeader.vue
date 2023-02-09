@@ -1,5 +1,6 @@
 <script>
 import {store} from '../store'
+
 export default {
     name:'AppHeader',
     data(){
@@ -22,10 +23,10 @@ export default {
                 <div class="search-field col-4 d-flex">
                     <span class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="search" id="boolsearch" name="boolsearch" v-model="store.elementToSearch" @keyup.enter="$emit('cercaserie')">
-                    <select class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <select class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" v-model="store.typeOf" @change="$emit('changeType')">
                         <option class="dropdown-item" selected value="">Categoria</option>
                         <option class="dropdown-item" value="movie">Film</option>
-                        <option class="dropdown-item" value="TV">Serie TV</option>
+                        <option class="dropdown-item" value="tv">Serie TV</option>
                     </select>
                 </div>
             </div>

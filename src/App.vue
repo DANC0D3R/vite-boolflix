@@ -1,5 +1,6 @@
 <script>
 import {store} from './store'
+
 import axios from 'axios'
 import AppHeader from './components/AppHeader.vue'
 import AppMain from './components/AppMain.vue'
@@ -17,14 +18,44 @@ export default {
     Card
   },
   methods:{
-    getApiCall(){
+    firstLaunch(){
+      // Da rivedere
+      axios.get(store.trendUrl+'movie/week?api_key='+store.apiKey+'&language=it-IT',
+      {params: {media_type:'tv'}})
+      .then(result => {
+        store.movie = result.data.results
+        console.log(store.movie);
+      })
+      .catch( error =>{
+        console.log(error);
+      })
+      axios.get(store.trendUrl+'tv/week?api_key='+store.apiKey+'&language=it-IT',
+      {params: {media_type:'tv'}})
+      .then(result => {
+        store.tv = result.data.results
+        console.log(store.tv);
+      })
+      .catch( error =>{
+        console.log(error);
+      })
+      store.isLoaded=true;
+    },
+    showResults(){
+        if(store.typeOf===''){
+          this.getApiCall('movie')
+          this.getApiCall('tv')
+        }else{
+          this.getApiCall(store.typeOf)
+        }
+    },
+    getApiCall(type){
       store.isLoaded = false;
-      store.moviesList=[];
-      console.log(axios.get(store.apiUrlMovie+store.elementToSearch))
-      axios.get(store.apiUrlMovie+store.elementToSearch)
+      console.log(store.typeOf);
+      store[type]=[];
+        axios.get(store.apiUrl+type+'?api_key='+store.apiKey+'&query='+store.elementToSearch+'&language=it-IT')
       .then( result =>{
-          store.moviesList = result.data.results;
-          console.log(store.moviesList);
+          store[type] = result.data.results;
+          console.log(store[type]);
           store.isLoaded = true;
       })
       .catch( error =>{
@@ -32,16 +63,16 @@ export default {
       })
     }
   },
-  mounted(){
+  created(){
     console.log('lanciata');
-    this.getApiCall()
+    this.firstLaunch()
   }
 }
 </script>
 
 <template>
-  <AppHeader @cercaserie="getApiCall"/>
-  <AppMain />
+  <AppHeader @cercaserie="showResults" @changeType="showResults"/>
+  <AppMain/>
 </template>
 
 <!-- Stile -->
