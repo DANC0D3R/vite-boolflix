@@ -1,4 +1,3 @@
-@use './variables' as *;
 @import "/node_modules/bootstrap/scss/bootstrap";
 @import "/node_modules/@fortawesome/fontawesome-free/css/all.min.css";
 @import "/node_modules/flag-icons/css/flag-icons.min.css";
@@ -12,7 +11,7 @@
 
 /* REGOLE GENERALI */
 img{
-    max-width:100%;
+    max-width: 100%;
 }
 
 h1,h2{
@@ -20,5 +19,5 @@ h1,h2{
     font-weight: 500;
     text-transform: uppercase;
     
-    color: $primary-red;
-  }
+    color: #DB0011;
+}

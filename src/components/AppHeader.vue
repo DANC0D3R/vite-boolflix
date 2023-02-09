@@ -36,7 +36,6 @@ export default {
 
 <!-- Stile -->
 <style lang="scss">
-@use '../assets/scss/variables' as *;
 header{
     height: 70px;
 
@@ -49,7 +48,7 @@ header{
             padding: 10px;
 
             color:#FFFFFF;
-            background-color: $primary-darkgrey;
+            background-color: rgba(52, 49, 49, 0.876);
         }
         .dropdown-toggle{
             font-size: 80%;
@@ -59,7 +58,7 @@ header{
             border-bottom-right-radius: 8px;
 
             color:#FFFFFF;
-            background-color: $primary-red;
+            background-color: #DB0011;
 
             outline: none;
         }
