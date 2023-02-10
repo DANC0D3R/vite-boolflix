@@ -39,7 +39,7 @@ export default {
 <style lang="scss" scoped>
     main{
         width: 100vw;
-        height: calc(100vh - 70px);
+        height: calc(100vh - 140px);
 
         overflow-y: auto;
         &::-webkit-scrollbar{
