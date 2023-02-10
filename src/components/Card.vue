@@ -4,7 +4,7 @@ import {store} from '../store'
 export default {
     name:'Card',
     props:{
-    elem:Object
+        elem: Object
     },
     data(){
         return{
@@ -13,20 +13,18 @@ export default {
         }
     },
     methods:{
-        rating(number){
-            if(number > 0){
-                let newRating = (Math.floor(Math.round(number / 2)));
+    rating(number){
+        if(number > 0){
+            let newRating = (Math.floor(Math.round(number / 2)));
             let stars = [];
             for(let i = newRating; i >= 1; i--){
-                stars.push(`<i class="fa-solid fa-star style="color: #FFD700;"></i>`);
+                stars.push(`<i class="fa-solid fa-star" style="color:  #FFD700;"></i>`);
             };
             for(let j = (5 - newRating); j >= 1; j--){
-                stars.push(`<i class="fa-regular fa-star" style="color: rgba(52, 49, 49, 0.876);></i>`);
+                stars.push(`<i class="fa-regular fa-star"></i>`);
             }
             return stars.join('');
-            } else {
-                return 'Nessuna valutazione'
-            }
+        } else {return 'Nessuna valutazione'}
         },
         getFlag(value){
         let flag;
@@ -59,8 +57,14 @@ export default {
             case 'ko':
                 flag = 'kr.svg';
                 break;
+            case 'pt':
+                flag = 'pt.svg';
+                break;
             case 'ru':
                 flag = 'ru.svg';
+                break;
+            case 'zh':
+                flag = 'cn.svg';
                 break;
             default:
             flag='';

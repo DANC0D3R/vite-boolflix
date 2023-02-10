@@ -23,6 +23,7 @@ export default {
                 <div class="search-field col-4 d-flex">
                     <span class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="search" id="boolsearch" name="boolsearch" placeholder="Cerca un film o una serie tv..." v-model="store.elementToSearch" @keyup="$emit('cercaserie')">
+                    <!-- Selzione categoria -->
                     <select class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" v-model="store.typeOf" @change="$emit('changeType')">
                         <option class="dropdown-item" selected value="">Categoria</option>
                         <option class="dropdown-item" value="movie">Film</option>
@@ -83,12 +84,3 @@ export default {
         }
     }
 </style>
-<!-- .logo-text{
-    padding-top: 10px;
-}
-.logo-img{
-    width: 8rem;
-    height: 8rem;
-
-    padding-top: 10px;
-} -->
