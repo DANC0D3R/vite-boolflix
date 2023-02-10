@@ -46,14 +46,15 @@ export default {
         }else{
           this.getApiCall(store.typeOf)
         }
+        this.title='Risultati della ricerca'
     },
     getApiCall(type){
       store.isLoaded = false;
       store[type]=[];
         axios.get(store.apiUrl+type+'?api_key='+store.apiKey+'&query='+store.elementToSearch+'&language=it-IT')
       .then( result =>{
-          store[type] = result.data.results;
-          store.isLoaded = true;
+        store[type] = result.data.results;
+        store.isLoaded = true;
       })
       .catch( error =>{
         console.log(error);
@@ -62,7 +63,7 @@ export default {
   },
   created(){
     console.log('lanciata');
-    this.firstLaunch()
+    this.firstLaunch();
   }
 }
 </script>
