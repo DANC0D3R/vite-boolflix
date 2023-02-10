@@ -5,7 +5,7 @@ import Card from './Card.vue'
 export default {
     name:'AppMain',
     props:{
-    title: String
+        title: String
     },
     data(){
         return{
@@ -13,8 +13,8 @@ export default {
         }
     },
     components:{
-    Card
-    },
+        Card
+    }
 }
 </script>
 
@@ -38,39 +38,39 @@ export default {
 <!-- Stile -->
 <style lang="scss" scoped>
     main{
-        width:100vw;
-        height:calc(100vh - 170px);
+        width: 100vw;
+        height: calc(100vh - 70px);
 
         overflow-y: auto;
         &::-webkit-scrollbar{
-        width: 8px;
-        
-        border-radius: 3px;
+            width: 8px;
 
-        background-color: rgba(73, 71, 71, 0.725);
+            border-radius: 3px;
+
+            background-color: rgba(73, 71, 71, 0.725);
         }
         &::-webkit-scrollbar-thumb{
-        background:#DB0011; 
+            border-radius: 3px;
 
-        border-radius: 3px;
+            background: #DB0011; 
         }
         .dc-cont > .row{
-        margin-bottom: 15px;
+            margin-bottom: 15px;
 
-        padding: 12px;
+            padding: 12px;
         }
     }
     h1{
         margin: 15px 0;
 
-        padding:0;
+        padding: 0;
 
         font-size: 4rem;
     }
     h2{
         margin: 18px 0 15px;
 
-        padding:0;
+        padding: 0;
 
         font-size: 2.5rem;
     }

@@ -17,13 +17,12 @@ export default {
             <div class="row align-items-center h-100 justify-content-between">
                 <!-- Logo -->
                 <div class="col-2 logo d-flex align-items-center">
-                    <img class="logo-text" src="../assets/img/boolflix-text.png" alt="boolfix">
-                    <img class="logo-img" src="../assets/img/boolflix-logo.png" alt="logo">
+                    <a href="index.html"><img class="logo-text" src="../assets/img/boolflix-text.png" alt="boolfix"></a>
                 </div>
                 <!-- Barra di ricerca -->
                 <div class="search-field col-4 d-flex">
                     <span class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="search" id="boolsearch" name="boolsearch" class="p-1" placeholder="Cerca un film o una serie tv..." v-model="store.elementToSearch" @keyup="$emit('cercaserie')">
+                    <input type="search" id="boolsearch" name="boolsearch" placeholder="Cerca un film o una serie tv..." v-model="store.elementToSearch" @keyup="$emit('cercaserie')">
                     <select class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" v-model="store.typeOf" @change="$emit('changeType')">
                         <option class="dropdown-item" selected value="">Categoria</option>
                         <option class="dropdown-item" value="movie">Film</option>
@@ -37,55 +36,59 @@ export default {
 
 <!-- Stile -->
 <style lang="scss" scoped>
-header{
-    height: 80px;
+    header{
+        height: 70px;
 
-    padding: 7px;
-    .logo{
-        height: 90%;
-        .logo-text{
-            padding-top: 10px;
+        padding: 7px;
+        .logo a > img{
+            max-height: 90%;
         }
-        .logo-img{
-            width: 8rem;
-            height: 8rem;
+        .search-field{
+            justify-content: flex-end;
+            span{
+                padding: 10px;
 
-            padding-top: 10px;
-        }
-    }
-    .search-field{
-        justify-content: flex-end;
-        span{
-            padding: 10px;
+                border-top-left-radius: 8px;
+                border-bottom-left-radius: 8px;
 
-            border-top-left-radius: 8px;
-            border-bottom-left-radius: 8px;
+                color: #FFFFFF;
+                background-color: rgba(52, 49, 49, 0.876);
+            }
+            .dropdown-toggle{
+                font-size: 80%;
 
-            color:#FFFFFF;
-            background-color: rgba(52, 49, 49, 0.876);
-        }
-        .dropdown-toggle{
-            border: none;
-            border-top-right-radius: 8px;
-            border-bottom-right-radius: 8px;
+                border: none;
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
 
-            font-size: 80%;
-
-            color:#FFFFFF;
-            background-color: #DB0011;
-
-            outline: none;
-        }
-        .input[data-v-48a13218]{
-            min-width: 200px;
-
-            font-size: 80%;
-            &:focus-visible{
-                border-color: #DB0011;
+                color: #FFFFFF;
+                background-color: #DB0011;
                 
-                outline: #DB0011;
+                outline: none;
+
+                cursor: pointer;
+            }
+            input[data-v-48a13218]{ 
+                min-width: 200px;
+                
+                padding: 5px;
+
+                font-size: 80%;
+                &:focus-visible{
+                    border-color: #DB0011;
+
+                    outline: #DB0011;
+                }
             }
         }
     }
-}
 </style>
+<!-- .logo-text{
+    padding-top: 10px;
+}
+.logo-img{
+    width: 8rem;
+    height: 8rem;
+
+    padding-top: 10px;
+} -->
