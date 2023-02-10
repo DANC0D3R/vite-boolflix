@@ -1,15 +1,16 @@
 <script>
 import {store} from './store'
-
 import axios from 'axios'
 import AppHeader from './components/AppHeader.vue'
 import AppMain from './components/AppMain.vue'
 import Card from './components/Card.vue'
+
 export default {
   name:'App',
   data(){
     return{
-      store
+      store,
+      title: ''
     }
   },
   components:{
@@ -19,12 +20,10 @@ export default {
   },
   methods:{
     firstLaunch(){
-      // Da rivedere
       axios.get(store.trendUrl+'movie/week?api_key='+store.apiKey+'&language=it-IT',
-      {params: {media_type:'tv'}})
+      {params: {media_type:'movie'}})
       .then(result => {
         store.movie = result.data.results
-        console.log(store.movie);
       })
       .catch( error =>{
         console.log(error);
@@ -33,12 +32,12 @@ export default {
       {params: {media_type:'tv'}})
       .then(result => {
         store.tv = result.data.results
-        console.log(store.tv);
       })
       .catch( error =>{
         console.log(error);
       })
       store.isLoaded=true;
+      this.title='Di tendenza'
     },
     showResults(){
         if(store.typeOf===''){
@@ -50,12 +49,10 @@ export default {
     },
     getApiCall(type){
       store.isLoaded = false;
-      console.log(store.typeOf);
       store[type]=[];
         axios.get(store.apiUrl+type+'?api_key='+store.apiKey+'&query='+store.elementToSearch+'&language=it-IT')
       .then( result =>{
           store[type] = result.data.results;
-          console.log(store[type]);
           store.isLoaded = true;
       })
       .catch( error =>{
@@ -72,11 +69,18 @@ export default {
 
 <template>
   <AppHeader @cercaserie="showResults" @changeType="showResults"/>
+  <h1>{{ title }}</h1>
   <AppMain/>
 </template>
 
 <!-- Stile -->
 <style lang="scss">
 @use './assets/scss/general.scss';
+h1{
+  text-align: center;
+  
+  margin: 0 auto 0;
 
+  font-size: 3.5rem;
+  }
 </style>
